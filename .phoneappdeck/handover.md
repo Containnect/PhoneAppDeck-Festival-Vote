@@ -13,7 +13,7 @@
 コードは `index.html` にまとまっています。選択 → 確定 → 保存 → 結果表示という流れです。
 
 ## まず取り組む仕事
-[Issue #2](https://github.com/Containnect/PhoneAppDeck-Festival-Vote/issues/2) を確認し、AIエージェントと「投票を確定する」ボタンを完成させよう。残っている `LAST TASK` コメントが入口です。
+[サンプルの開発課題 #2](https://github.com/Containnect/PhoneAppDeck-Festival-Vote/issues/2) を参考に、自分のリポジトリにもIssueを作成して、AIエージェントと「投票を確定する」ボタンを完成させよう。残っている `LAST TASK` コメントが入口です。テンプレートから複製しても、GitHubのIssue自体は複製されないため、自分のIssueを新規作成します。
 
 ## 作業の流れ
 1. **設計を読む**：役割と完成条件を説明できるようにする
