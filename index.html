@@ -24,8 +24,9 @@
   <header><span aria-hidden="true">🎪</span><h1>文化祭人気投票</h1><p>どの企画が気になる？</p></header>
   <section class="panel" aria-labelledby="question">
     <h2 id="question">気になる企画を1つ選ぼう</h2>
-    <p class="muted">この端末で1票を投じられます。</p>
+    <p class="muted">企画を選んで、最後に投票を確定しよう。</p>
     <div id="choices" class="choices"></div>
+    <button id="confirm" class="primary" type="button" disabled>投票を確定する</button>
     <p id="message" role="status" aria-live="polite"></p>
     <div id="result" aria-live="polite"></div>
     <button id="reset" type="button">投票をやり直す</button>
@@ -41,6 +42,8 @@
   const message = document.getElementById('message');
   const result = document.getElementById('result');
   const reset = document.getElementById('reset');
+  const confirmButton = document.getElementById('confirm');
+  let selected = null;
   const readVote = () => {
     try { const value = localStorage.getItem(key); return options.includes(value) ? value : null; }
     catch { return null; }
@@ -59,17 +62,17 @@
       button.className = 'choice';
       button.textContent = option;
       button.disabled = voted !== null;
-      button.setAttribute('aria-pressed', String(voted === option));
+      button.setAttribute('aria-pressed', String((voted ?? selected) === option));
       button.addEventListener('click', () => {
         if (voted !== null) return;
-        voted = option;
-        const stored = saveVote(option);
+        selected = option;
         render();
-        if (!stored) message.textContent = '投票は表示されますが、この環境では保存できません。';
       });
       choices.append(button);
     }
-    message.textContent = voted ? 'あなたの選択：' + voted : 'まだ投票していません。';
+    confirmButton.disabled = voted !== null || selected === null;
+    confirmButton.hidden = voted !== null;
+    message.textContent = voted ? 'あなたの選択：' + voted : selected ? '選択中：' + selected : 'まだ選択していません。';
     result.replaceChildren();
     if (!voted) return;
     const heading = document.createElement('h3');
@@ -92,7 +95,14 @@
       result.append(row);
     }
   };
-  reset.addEventListener('click', () => { clearVote(); voted = null; render(); });
+  // LAST TASK: connect the confirm button to saveVote(selected), update voted, and render().
+  // The selection UI, saved-vote restoration, and results display are already implemented.
+  // Keep the storage-failure explanation used by the existing saveVote helper.
+  confirmButton.addEventListener('click', () => {
+    if (voted !== null || selected === null) return;
+    message.textContent = '投票の確定処理はまだ実装されていません。';
+  });
+  reset.addEventListener('click', () => { clearVote(); voted = null; selected = null; render(); });
   render();
 })();
 </script>
