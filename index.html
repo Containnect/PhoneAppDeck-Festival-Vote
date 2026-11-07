@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#eff6ff">
-  <title>文化祭人気投票（試作）</title>
+  <title>文化祭人気投票</title>
   <style>
     :root{font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;color:#15233b;background:#f4f7fb}
     *{box-sizing:border-box}body{margin:0;padding:22px 14px}main{max-width:520px;margin:auto}
@@ -28,10 +28,9 @@
     <div id="choices" class="choices"></div>
     <p id="message" role="status" aria-live="polite"></p>
     <div id="result" aria-live="polite"></div>
-    <button id="reset" type="button">自分の投票をリセット（体験用）</button>
+    <button id="reset" type="button">投票をやり直す</button>
   </section>
-  <p class="notice"><strong>これは授業用の試作です。</strong> 投票はこのブラウザ内だけに保存されます。ほかの人の票は集計されません。本番の文化祭投票には使用しないでください。</p>
-  <p class="muted">設計 → 試作 → 検証 → 改善：友達に操作してもらい、改善案を見つけよう。</p>
+  <p class="notice">このアプリは練習用です。投票はこのブラウザ内だけに保存され、ほかの人の票は集計されません。</p>
 </main>
 <script>
 (() => {
