@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "title": "文化祭投票アプリ",
+  "summary": "文化祭の企画を選び、このブラウザ内で自分の投票結果を確認するWebアプリ",
+  "stage": "handover",
+  "components": [
+    {
+      "id": "ui",
+      "name": "企画の選択画面",
+      "status": "implemented",
+      "description": "選択肢の描画と選択状態"
+    },
+    {
+      "id": "confirm",
+      "name": "投票の確定",
+      "status": "todo",
+      "description": "選択した票を保存して結果表示につなぐ",
+      "issue": 2
+    },
+    {
+      "id": "storage",
+      "name": "ブラウザ内保存",
+      "status": "implemented",
+      "description": "localStorageへの保存・再読込・リセット"
+    },
+    {
+      "id": "result",
+      "name": "投票結果の表示",
+      "status": "implemented",
+      "description": "このブラウザの票だけを表示"
+    },
+    {
+      "id": "publish",
+      "name": "Web公開",
+      "status": "setup_required",
+      "description": "GitHub Pages Actionsから公開する"
+    }
+  ],
+  "nextTask": {
+    "title": "投票を確定できるようにする",
+    "issue": 2
+  },
+  "verification": {
+    "developer": [
+      "選択→確定→結果が表示される",
+      "再読み込みしても投票が残る",
+      "リセット後に再投票できる"
+    ],
+    "user": [
+      "説明なしで投票できるか",
+      "結果が分かりやすいか",
+      "要望や質問を記録できるか"
+    ]
+  },
+  "outOfScope": [
+    "他の端末との投票共有",
+    "本番用の本人確認・重複投票防止"
+  ],
+  "handover": ".phoneappdeck/handover.md"
+}
