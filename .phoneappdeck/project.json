@@ -15,7 +15,7 @@
       "name": "投票の確定",
       "status": "todo",
       "description": "選択した票を保存して結果表示につなぐ",
-      "issue": 2
+      "taskId": "first-vote-confirmation"
     },
     {
       "id": "storage",
@@ -37,8 +37,9 @@
     }
   ],
   "nextTask": {
+    "id": "first-vote-confirmation",
     "title": "投票を確定できるようにする",
-    "issue": 2
+    "sourceIssueUrl": "https://github.com/Containnect/PhoneAppDeck-Festival-Vote/issues/2"
   },
   "verification": {
     "developer": [
